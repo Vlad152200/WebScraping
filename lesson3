@@ -1,0 +1,36 @@
+1.1 Регулярний вираз для парсингу усіх email в документі
+ 
+ [a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+\.[a-zA-Z]{2,}
+ 
+1.2 Регулярний вираз для парсингу усіх дат в документі
+
+Для пошуку дат у різних форматах можна використати наступні вирази
+Для формату DD/MM/YYYY
+\b\d{1,2}[\/\.-]\d{1,2}[\/\.-]\d{4}\b
+
+Для формату YYYY/MM/DD/
+\b\d{4}[\/\.-]\d{1,2}[\/\.-]\d{1,2}
+
+Для формату текстових дат
+\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4}
+
+Можна поєднати в один вираз, але який буде важко читати
+(?:\b\d{1,2}[\/\.-]\d{1,2}[\/\.-]\d{4}\b|\b\d{4}[\/\.-]\d{1,2}[\/\.-]\d{1,2}|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4}\b)
+
+1.3 Регулярний вираз для парсингу усіх URL
+
+([a-zA-Z]{2,}:\/\/(?:www\.)?|www.)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?
+
+1.4 Регулярний вираз для парсингу усіх Номерів
+
+\b\+?\(?\d{1,3}\)?[\s\.-]\d{2,5}[\s\.-]\d{1,4}[\s\.-]?\d{2,4}\b
+
+2. Написання XPath для HTML-сторінки 
+Input для введення пошукового запиту
+//input[@id='text-input-what']
+
+Input для введення регіону
+//input[@id='text-input-where']
+
+Кнопка пошуку
+//button[@type='submit' and contains(@class, 'yosegi-InlineWhatWhere-primaryButton')]
