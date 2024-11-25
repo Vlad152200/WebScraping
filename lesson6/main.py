@@ -78,7 +78,6 @@ def write_sql(data: list) -> None:
     conn.close()
 
 def read_json(filename: str) -> list:
-    # Чтение данных из JSON-файла
     with open(filename, 'r', encoding='utf-8') as f:
         return json.load(f)
 
